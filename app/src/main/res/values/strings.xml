@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">medicoom2</string>
     <string name="pharmacy">Аптечка</string>
+    <string name="today">Сегодня</string>
+    <string name="treatment">Лечение</string>
+    <string name="history">История</string>
 </resources>

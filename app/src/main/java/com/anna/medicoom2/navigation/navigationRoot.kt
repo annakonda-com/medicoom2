@@ -12,8 +12,10 @@ import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
+import com.anna.medicoom2.history.HistoryScreenUi
 import com.anna.medicoom2.pharmacy.PharmacyScreenUi
 import com.anna.medicoom2.today.TodayScreenUi
+import com.anna.medicoom2.treatment.TreatmentScreenUi
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -29,9 +31,14 @@ data object TreatmentScreen : NavKey
 data object HistoryScreen : NavKey
 
 @Composable
-fun NavigationRoot(modifier: Modifier, backStack: NavBackStack, navigationManager: NavigationManager) {
+fun NavigationRoot(
+    modifier: Modifier,
+    backStack: NavBackStack,
+    navigationManager: NavigationManager
+) {
     NavDisplay(
         backStack = backStack,
+        onBack = {navigationManager.back()},
         entryProvider = { key ->
             when (key) {
                 is PharmacyScreen -> NavEntry(key) {
@@ -39,7 +46,15 @@ fun NavigationRoot(modifier: Modifier, backStack: NavBackStack, navigationManage
                 }
 
                 is TodayScreen -> NavEntry(key) {
-                    TodayScreenUi(  modifier, navigationManager)
+                    TodayScreenUi(modifier, navigationManager)
+                }
+
+                is HistoryScreen -> NavEntry(key) {
+                    HistoryScreenUi(modifier, navigationManager)
+                }
+
+                is TreatmentScreen -> NavEntry(key) {
+                    TreatmentScreenUi(modifier, navigationManager)
                 }
 
                 else -> throw RuntimeException("Invalid NavKey")
