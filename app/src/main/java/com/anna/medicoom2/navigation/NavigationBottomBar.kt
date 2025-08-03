@@ -1,22 +1,32 @@
 package com.anna.medicoom2.navigation
 
 import android.graphics.drawable.Icon
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import com.anna.medicoom2.R
 import com.anna.medicoom2.history.HistoryScreenUi
 import com.anna.medicoom2.today.TodayScreenUi
+import com.anna.medicoom2.ui.theme.Medicoom2Theme
 
 
 @Composable
@@ -72,4 +82,15 @@ fun destinationsFactory(): List<DestinationInterface> {
         override val label: String = stringResource(R.string.history)
     }
     return listOf<DestinationInterface>(today, pharmacy, treatment, history)
+}
+
+@Composable
+fun SosFAB(){
+    FloatingActionButton(
+        onClick = {},
+        shape = CircleShape,
+        modifier = Modifier.offset(y = 48.dp).size(60.dp),
+        containerColor = MaterialTheme.colorScheme.primary ) {
+        Icon(painter = painterResource(R.drawable.sosbtn), "SosFab")
+    }
 }
