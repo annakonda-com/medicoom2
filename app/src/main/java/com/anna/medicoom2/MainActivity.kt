@@ -27,6 +27,8 @@ import com.anna.medicoom2.navigation.SosFAB
 import com.anna.medicoom2.navigation.TodayScreen
 import com.anna.medicoom2.ui.theme.Medicoom2Theme
 
+
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,9 +48,7 @@ fun MedicoomApp(){
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = { NavigationBottomBar(backStack, navigationManager) },
-        floatingActionButton = {
-            SosFAB()
-        },
+        floatingActionButton = { SosFAB() },
         floatingActionButtonPosition = FabPosition.Center,
     ) { innerPadding ->
         NavigationRoot(
