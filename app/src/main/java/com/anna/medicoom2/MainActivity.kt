@@ -23,19 +23,28 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val backStack = rememberNavBackStack(TodayScreen)
-            val navigationManager = NavigationManager(backStack)
-            Scaffold(modifier = Modifier.fillMaxSize(),
-                bottomBar = { NavigationBottomBar(backStack, navigationManager) }
-            ) { innerPadding ->
-                NavigationRoot(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(innerPadding),
-                    backStack, navigationManager
-                )
+            Medicoom2Theme {
+                MedicoomApp()
             }
         }
+    }
+}
+
+@Preview
+@Composable
+fun MedicoomApp(){
+    val backStack = rememberNavBackStack(TodayScreen)
+    val navigationManager = NavigationManager(backStack)
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        bottomBar = { NavigationBottomBar(backStack, navigationManager) }
+    ) { innerPadding ->
+        NavigationRoot(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
+            backStack, navigationManager
+        )
     }
 }
 
