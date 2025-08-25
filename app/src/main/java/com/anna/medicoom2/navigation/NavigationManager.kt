@@ -20,4 +20,9 @@ class NavigationManager constructor(override val backStack: NavBackStack) :
         backStack.clear()
         backStack.add(TodayScreen)
     }
+
+    override fun currentDestination(): NavKey {
+        return backStack[backStack.size - 1]
+    }
+
 }

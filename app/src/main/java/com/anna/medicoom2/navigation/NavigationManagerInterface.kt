@@ -8,4 +8,5 @@ interface NavigationManagerInterface {
     fun route(path: NavKey): Unit
     fun toHomeScreen(): Unit
     fun back(): Unit
+    fun currentDestination(): NavKey
 }
