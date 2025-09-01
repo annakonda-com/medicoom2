@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.anna.medicoom2"
+    namespace = "ru.medicoom"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.anna.medicoom2"
+        applicationId = "ru.medicoom"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
