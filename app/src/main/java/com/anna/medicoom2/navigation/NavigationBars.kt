@@ -1,6 +1,11 @@
 package com.anna.medicoom2.navigation
 
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
 import android.icu.text.CaseMap
+import android.net.Uri
+import android.util.Log
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -20,13 +25,23 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat.startActivity
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
+import com.anna.medicoom2.DataStoreUserSettings
 import com.anna.medicoom2.R
+import kotlinx.coroutines.async
+import kotlinx.coroutines.runBlocking
+import androidx.core.net.toUri
 
 
 @Composable
@@ -85,9 +100,24 @@ fun destinationsFactory(): List<DestinationInterface> {
 }
 
 @Composable
-fun SosFAB(){
+fun SosFAB(context: Context){
+    val dataStoreUserSettings = DataStoreUserSettings(context)
+    var phone = remember {
+        mutableStateOf("tel:103")
+    }
+    LaunchedEffect(key1 = true) { dataStoreUserSettings.readEmergencyNum().collect { phone.value = it }}
     FloatingActionButton(
-        onClick = {},
+        onClick = {
+            val sendIntent = Intent().apply {
+                action = Intent.ACTION_DIAL
+                data = phone.value.toUri()
+            }
+            try {
+                context.startActivity(sendIntent)
+            } catch (e: ActivityNotFoundException) {
+                Log.e("ANNA", "ActivityNotFoundException")
+            }
+        },
         shape = CircleShape,
         modifier = Modifier.offset(y = 48.dp).size(60.dp),
         containerColor = MaterialTheme.colorScheme.primary ) {

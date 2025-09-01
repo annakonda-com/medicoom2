@@ -1,15 +1,12 @@
 package com.anna.medicoom2.today
 
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocal
 import androidx.compose.ui.Modifier
 import com.anna.medicoom2.navigation.NavigationManager
 import com.anna.medicoom2.navigation.PharmacyScreen
-
 
 @Composable
 fun TodayScreenUi(modifier: Modifier, navigationManager: NavigationManager){
