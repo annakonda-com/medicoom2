@@ -14,8 +14,8 @@ val EMERGENCY_NUMBER = stringPreferencesKey("EMERGENCY_NUMBER")
 class DataStoreUserSettings (context: Context){
     private val dataStore = context.userSettingsDS
 
-    fun readEmergencyNum() : Flow<String> {
-        return dataStore.data.map { it[EMERGENCY_NUMBER] ?: "tel:103" }
+    fun readEmergencyNum(context: Context) : Flow<String> {
+        return dataStore.data.map { it[EMERGENCY_NUMBER] ?: context.getString(R.string.sos_num) }
     }
 
 }

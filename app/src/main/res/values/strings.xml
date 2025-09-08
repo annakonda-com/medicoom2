@@ -7,4 +7,5 @@
     <string name="sosFab">Это кнопка SOS</string>
     <string name="settings">Переход в настройки</string>
     <string name="medicoom">Медикум</string>
+    <string name="sos_num">tel:103</string>
 </resources>
