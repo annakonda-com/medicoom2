@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation3.runtime.rememberNavBackStack
 import ru.medicoom.navigation.BasicTopBar
 import ru.medicoom.navigation.HistoryScreen
@@ -55,7 +56,8 @@ class MainActivity : ComponentActivity() {
             NavigationRoot(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(innerPadding),
+                    .padding(innerPadding)
+                    .padding(8.dp),
                 backStack, navigationManager
             )
         }

@@ -7,13 +7,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import ru.medicoom.navigation.NavigationManager
 import ru.medicoom.navigation.PharmacyScreen
+import ru.medicoom.ui.components.TodayListItem
 
 @Composable
 fun TodayScreenUi(modifier: Modifier, navigationManager: NavigationManager){
     Column (modifier = modifier) {
-        Text( "Это экран сегодня")
-        Button(onClick = { navigationManager.route(PharmacyScreen) }) {
-            Text("Го на экран аптечки")
-        }
+        TodayListItem()
     }
 }
