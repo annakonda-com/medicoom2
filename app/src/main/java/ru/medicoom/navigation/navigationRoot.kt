@@ -6,10 +6,10 @@ import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.ui.NavDisplay
-import ru.medicoom.history.HistoryScreenUi
-import ru.medicoom.pharmacy.PharmacyScreenUi
-import ru.medicoom.today.TodayScreenUi
-import ru.medicoom.treatment.TreatmentScreenUi
+import ru.medicoom.ui.screens.HistoryScreenUi
+import ru.medicoom.ui.screens.PharmacyScreenUi
+import ru.medicoom.ui.screens.TodayScreenUi
+import ru.medicoom.ui.screens.TreatmentScreenUi
 import kotlinx.serialization.Serializable
 
 @Serializable

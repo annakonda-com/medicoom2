@@ -1,4 +1,4 @@
-package ru.medicoom.dataClasses
+package ru.medicoom.data.model
 
 data class AppointmentOnDate (val id: Int, val date: Int,
                               val time: Int, val appointmentId: Int,

@@ -1,6 +1,6 @@
-package ru.medicoom.dataClasses
+package ru.medicoom.data.network.models
 
-class Medicine(
+class NetworkMedicine(
     var id: String,
     var name: String,
     var dosage: String,

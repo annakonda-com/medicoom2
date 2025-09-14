@@ -1,6 +1,6 @@
-package ru.medicoom.dataClasses
+package ru.medicoom.data.network.models
 
-data class Appointment (
+data class NetworkAppointment (
     val id: Int,
     val amountAtTime: Int,
     val isArchive: Boolean,
